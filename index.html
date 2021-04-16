@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Web App Template2 Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+      a {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+      .main-nav-link:hover {
+        background-color: #555555;
+        color: white;
+      }
+      input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+
+      input[type=cancel] {
+        background-color: #fc1050;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=cancel]:hover {
+        background-color: #fe0840;
+      }
+
+      .cancel-button:hover {
+        background-color: red;
+      }
+
+      body {
+        background-color: grey;
+        display: grid;
+        height: 100vh;
+        grid-template: auto 1fr auto / minmax(100px, 20%) 1fr;
+        grid-template-areas:  "header header"
+                              "nav main"
+                              "footer footer";
+        margin: 0px;
+        font-family: helvetica,courier,arial;
+      }
+
+      header{
+        display: flex;
+        grid-area: header;
+        background-color: #1a4670;
+        color: white;
+        grid-column: 1 / 3;
+      }
+
+      header a.icon {
+        wdith: 250px;
+        height: 50px;
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      h1 {
+        justify-content: center;
+      }
+      nav{
+        display: flex;
+        grid-area: nav;
+        background-color: grey;
+        grid-column: 1 / 2;
+        justify-content: center;
+      }
+
+      main{
+        display: flex;
+        flex-direction: column;
+        grid-area: main;
+        background-color: #f1f1f1;
+        grid-column: 2 / 3;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .main-nav-link {
+        display: flex;
+        padding-bottom: 15px;
+        padding-top: 45px;
+        border: 0px solid #1a4670;
+        margin: 0px;
+        background-color: #aeb8ad;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        color: white;
+      }
+
+      footer{
+        display: flex;
+        grid-area: footer;
+        background-color: #1a4670;
+        color: white;
+        grid-column: 1 / 3;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      .menuBar {
+        display: inline-block;
+        cursor: pointer;
+        padding: 15px;
+      }
+
+      .fa-gear {
+        display: inline-block;
+        cursor: pointer;
+        padding: 15px;
+      }
+
+      .fa-language {
+        display: inline-block;
+        cursor: pointer;
+        padding: 15px;
+      }
+
+      .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+
+      .change .bar2 {opacity: 0;}
+
+      .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+
+      .input-form {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 80px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="menuBar" onclick="hideshowmenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <i class="fa fa-gear" style="font-size:36px;"></i>
+      <i class="fa fa-language" style="font-size:36px;"></i>
+      <h1>Company Logo</h1>
+    </header>
+    <nav id="navMenu">
+      <div class="main-nav">
+        <a class="main-nav-link" href="#"><strong>HOME</strong></a>
+        <a class="main-nav-link" href="#"><strong>PROJECTS</strong></a>
+        <a class="main-nav-link" href="#"><strong>TEAM</strong></a>
+        <a class="main-nav-link" href="#"><strong>Menu</strong></a>
+        <a class="main-nav-link" href="#"><strong>Contac</strong></a>
+        <a class="main-nav-link" href="#"><strong>Clients</strong></a>
+        <a class="main-nav-link" href="#"><strong>Partners</strong></a>
+      </div>
+    </nav>
+    <main>
+      <h3>Project General Information</h3>
+      <div class="input-form">
+        <form action="#">
+          <label for="pname">Project Name</label>
+          <input type="text" id="pname" name="projectname" placeholder="Project name..">
+
+          <label for="cname">Client Name</label>
+          <input type="text" id="cname" name="clientname" placeholder="Client name..">
+
+          <label for="cdate">Createtion Date</label>
+          <input type="text" id="cdate" name="creationdate" placeholder="Creation date..">
+
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="usa">France</option>
+            <option value="usa">China</option>
+            <option value="usa">South Africa</option>
+
+            <label for="slocation">Site Location</label>
+            <input type="text" id="slocation" name="slocation" placeholder="Site location..">
+
+            <label for="aname">Author's Name</label>
+            <input type="text" id="aname" name="aname" placeholder="Author's Name..">
+          </select>
+
+          <input type="submit" value="Save">
+          <input class="cancel-button" type="cancel" value="Leave">
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p>Footer</p>
+    </footer>
+
+    <script>
+    function changeMenuBar(x) {
+      x.classList.toggle("change");
+    }
+    </script>
+
+    <script>
+    function hideshowmenu(y) {
+      changeMenuBar(y);
+      var x = document.getElementById("navMenu");
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex";
+      }
+    }
+    </script>
+  </body>
+</html>
